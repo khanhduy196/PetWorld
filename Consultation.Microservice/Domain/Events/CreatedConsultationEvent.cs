@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Consultation.Microservice.Domain.Events
 {
-    public class CreateConsultationEvent : Event
+    public class CreatedConsultationEvent : Event
     {
         public string description { get; set; }
     }

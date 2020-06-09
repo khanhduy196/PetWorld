@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace Consultation.Microservice.Domain.EventHandlers
 {
-    public class CreateConsultationEventHandler : IEventHandler<CreateConsultationEvent>
+    public class CreatedConsultationEventHandler : IEventHandler<CreatedConsultationEvent>
     {
         private readonly IGenericRepository<Booking> _bookingRepository;
         private readonly DbContext _dbContext;
-        public CreateConsultationEventHandler(IGenericRepository<Booking> bookingRepository, DbContext dbContext)
+        public CreatedConsultationEventHandler(IGenericRepository<Booking> bookingRepository, DbContext dbContext)
         {
             this._bookingRepository = bookingRepository;
             this._dbContext = dbContext;
         }
 
-        public async Task Handle(CreateConsultationEvent @event)
+        public async Task Handle(CreatedConsultationEvent @event)
         {
             var booking = new Booking
             {

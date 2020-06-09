@@ -35,8 +35,8 @@ namespace Consultation.Microservice
             //Domain Bus
             services.AddSingleton<IEventBus, RabbitMQBus>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddTransient<CreateConsultationEventHandler>();
-            services.AddTransient<IEventHandler<CreateConsultationEvent>, CreateConsultationEventHandler>();
+            services.AddTransient<CreatedConsultationEventHandler>();
+            services.AddTransient<IEventHandler<CreatedConsultationEvent>, CreatedConsultationEventHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +60,7 @@ namespace Consultation.Microservice
 
             //
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            eventBus.Subscribe<CreateConsultationEvent, CreateConsultationEventHandler>();
+            eventBus.Subscribe<CreatedConsultationEvent, CreatedConsultationEventHandler>();
         }
     }
 }

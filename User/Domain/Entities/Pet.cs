@@ -10,6 +10,7 @@ namespace User.Microservice.Domain.Entities
 {
     public class Pet : BaseEntity
     {
+       
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }

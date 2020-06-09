@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Domain\CommandHandlers\**" />
+    <Content Remove="Domain\CommandHandlers\**" />
+    <EmbeddedResource Remove="Domain\CommandHandlers\**" />
+    <None Remove="Domain\CommandHandlers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="8.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
@@ -24,8 +31,9 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Domain\CommandHandlers\" />
-    <Folder Include="Domain\Commands\" />
+    <Folder Include="Domain\Models\" />
+    <Folder Include="Domain\Requests\" />
+    <Folder Include="Domain\Queries\GetAllConsultations\" />
   </ItemGroup>
 
   <ItemGroup>
