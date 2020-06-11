@@ -1,6 +1,5 @@
-using Consultation.Microservice.Domain;
-using Consultation.Microservice.Domain.EventHandlers;
-using Consultation.Microservice.Domain.Events;
+using Consultation.Microservice.Application.Messages.CreatedConsultation;
+using Consultation.Microservice.Infrastructure;
 using Core.Domain.Repositories;
 using Cqrs;
 using MediatR;
@@ -35,8 +34,8 @@ namespace Consultation.Microservice
             //Domain Bus
             services.AddSingleton<IEventBus, RabbitMQBus>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddTransient<CreatedConsultationEventHandler>();
-            services.AddTransient<IEventHandler<CreatedConsultationEvent>, CreatedConsultationEventHandler>();
+            services.AddTransient<CreatedConsultationMessageHandler>();
+            services.AddTransient<IEventHandler<CreatedConsultationMessage>, CreatedConsultationMessageHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +59,7 @@ namespace Consultation.Microservice
 
             //
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
-            eventBus.Subscribe<CreatedConsultationEvent, CreatedConsultationEventHandler>();
+            eventBus.Subscribe<CreatedConsultationMessage, CreatedConsultationMessageHandler>();
         }
     }
 }

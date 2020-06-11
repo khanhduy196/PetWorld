@@ -30,7 +30,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\EventHandlers\" />
+    <Folder Include="Application\Models\" />
+    <Folder Include="Application\Messages\" />
+    <Folder Include="Application\RequestDtos\" />
+    <Folder Include="Application\Queries\" />
+    <Folder Include="Domain\Entities\" />
+    <Folder Include="Infrastructure\EntityConfigurations\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 

@@ -9,7 +9,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Rabbit.Bus;
 using Rabbit.Infrastructure;
-using User.Microservice.Domain;
 
 namespace User
 {
@@ -27,8 +26,8 @@ namespace User
         {
             services.AddControllers();
             services.AddMediatR(typeof(Startup));
-            services.AddDbContext<UserDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("UserConnectionString")));
-            services.AddScoped<DbContext, UserDbContext>();
+            //services.AddDbContext<UserDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("UserConnectionString")));
+            //services.AddScoped<DbContext, UserDbContext>();
             services.AddScoped<IBaseCqrs, BaseCqrs>();
             //Domain Bus
             services.AddSingleton<IEventBus, RabbitMQBus>();

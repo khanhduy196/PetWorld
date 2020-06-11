@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Core.Domain.Repositories;
+﻿using System.Threading.Tasks;
 using Cqrs;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using User.Microservice.Domain.Commands;
-using User.Microservice.Domain.Entities;
+
+using User.Microservice.Application.Commands.CreatePet;
+
 
 namespace User.Microservice.Controllers
 {
@@ -22,7 +20,7 @@ namespace User.Microservice.Controllers
         [HttpPost]
         public async Task<IActionResult> Create()
         {
-            var command = new CreatePetCommand
+            var command = new CreatedPetCommand
             {
                 Name = "Meo Con"
             };

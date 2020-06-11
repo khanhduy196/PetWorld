@@ -8,9 +8,21 @@
 
   <ItemGroup>
     <Compile Remove="Domain\CommandHandlers\**" />
+    <Compile Remove="Domain\Models\**" />
+    <Compile Remove="Domain\Queries\**" />
+    <Compile Remove="Domain\Requests\**" />
     <Content Remove="Domain\CommandHandlers\**" />
+    <Content Remove="Domain\Models\**" />
+    <Content Remove="Domain\Queries\**" />
+    <Content Remove="Domain\Requests\**" />
     <EmbeddedResource Remove="Domain\CommandHandlers\**" />
+    <EmbeddedResource Remove="Domain\Models\**" />
+    <EmbeddedResource Remove="Domain\Queries\**" />
+    <EmbeddedResource Remove="Domain\Requests\**" />
     <None Remove="Domain\CommandHandlers\**" />
+    <None Remove="Domain\Models\**" />
+    <None Remove="Domain\Queries\**" />
+    <None Remove="Domain\Requests\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,9 +43,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Domain\Models\" />
-    <Folder Include="Domain\Requests\" />
-    <Folder Include="Domain\Queries\GetAllConsultations\" />
   </ItemGroup>
 
   <ItemGroup>
