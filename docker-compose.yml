@@ -1,0 +1,36 @@
+version: "3"
+services:
+  consultation:
+    build:
+      context: .
+      dockerfile: ./Consultation.Microservice/Dockerfile
+    ports:
+      - "8080:80"
+  user:
+    build:
+      context: .
+      dockerfile: ./User/Dockerfile
+    ports:
+      - "8080:80"
+  db:
+    image: "mcr.microsoft.com/mssql/server"
+    environment:
+      SA_PASSWORD: "Anhducmata1603"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+  rabbitmq:
+    image: "docker.io/bitnami/rabbitmq:3.8-debian-10"
+    ports:
+      - "4369:4369"
+      - "5672:5672"
+      - "25672:25672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_USERNAME=pet
+      - RABBITMQ_PASSWORD=pet
+    volumes:
+      - "rabbitmq_data:/bitnami"
+volumes:
+  rabbitmq_data:
+    driver: local
