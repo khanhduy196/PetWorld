@@ -5,17 +5,17 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{5130264F-4AA9-4786-A98E-3CBAAA59C5F2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{AFE0AA64-ACD4-4F8B-8EC1-205AFA6A626D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructures", "Infrastructures", "{AFE0AA64-ACD4-4F8B-8EC1-205AFA6A626D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B8AC7DA2-C3B5-460D-BBCF-FAEA9ED7B038}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Infrastructures\Core\Core.csproj", "{B8AC7DA2-C3B5-460D-BBCF-FAEA9ED7B038}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Microservice", "User\User.Microservice.csproj", "{6B06B303-8837-49A0-96AE-759C6E2230EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User", "Microservices\User\User.csproj", "{6B06B303-8837-49A0-96AE-759C6E2230EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbit", "Rabbit\Rabbit.csproj", "{746A69E4-EBE1-4BCD-9771-CE3C4979489C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rabbit", "Infrastructures\Rabbit\Rabbit.csproj", "{746A69E4-EBE1-4BCD-9771-CE3C4979489C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cqrs", "Cqrs\Cqrs.csproj", "{742AC672-2AF0-4415-9C23-82C1099B9379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cqrs", "Infrastructures\Cqrs\Cqrs.csproj", "{742AC672-2AF0-4415-9C23-82C1099B9379}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Microservice", "Consultation.Microservice\Consultation.Microservice.csproj", "{772553AE-14B6-47D0-AE37-E4C70174353E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation", "Microservices\Consultation\Consultation.csproj", "{772553AE-14B6-47D0-AE37-E4C70174353E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

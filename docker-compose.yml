@@ -3,7 +3,7 @@ services:
   consultation:
     build:
       context: .
-      dockerfile: ./Consultation.Microservice/Dockerfile
+      dockerfile: ./Consultation/Dockerfile
     ports:
       - "8080:80"
   user:
