@@ -32,6 +32,9 @@ namespace Authentication.Microservice
             services.AddControllers();
 
             services.CognitoConfigureServices();
+
+            // Swagger
+            services.SwaggerConfigureServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +46,9 @@ namespace Authentication.Microservice
             }
 
             app.UseHttpsRedirection();
+
+            //swagger
+            app.SwaggerConfigure();
 
             app.UseRouting();
 
