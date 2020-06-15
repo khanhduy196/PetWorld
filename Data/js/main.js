@@ -56,7 +56,7 @@ var Register = function () {
             var attributeList = $.map(nameValuePairs, (nameValuePair, idx) => {
                 return new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(nameValuePair)
             })
-
+            console.log(attributeList);
             var userName = $('#username_input').val();
             var userPassword = $('#password_input').val();
 

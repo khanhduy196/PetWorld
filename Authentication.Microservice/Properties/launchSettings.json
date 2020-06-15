@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:64388",
-      "sslPort": 44330
+      "applicationUrl": "http://localhost:49625",
+      "sslPort": 44335
     }
   },
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -12,15 +12,15 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "User": {
+    "Authentication.Microservice": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -29,7 +29,7 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/weatherforecast",
       "publishAllPorts": true,
       "useSSL": true
     }

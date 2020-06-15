@@ -7,15 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{AFE0AA64-ACD4-4F8B-8EC1-205AFA6A626D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B8AC7DA2-C3B5-460D-BBCF-FAEA9ED7B038}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{B8AC7DA2-C3B5-460D-BBCF-FAEA9ED7B038}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Microservice", "User\User.Microservice.csproj", "{6B06B303-8837-49A0-96AE-759C6E2230EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Microservice", "User\User.Microservice.csproj", "{6B06B303-8837-49A0-96AE-759C6E2230EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbit", "Rabbit\Rabbit.csproj", "{746A69E4-EBE1-4BCD-9771-CE3C4979489C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rabbit", "Rabbit\Rabbit.csproj", "{746A69E4-EBE1-4BCD-9771-CE3C4979489C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cqrs", "Cqrs\Cqrs.csproj", "{742AC672-2AF0-4415-9C23-82C1099B9379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cqrs", "Cqrs\Cqrs.csproj", "{742AC672-2AF0-4415-9C23-82C1099B9379}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consultation.Microservice", "Consultation.Microservice\Consultation.Microservice.csproj", "{772553AE-14B6-47D0-AE37-E4C70174353E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Consultation.Microservice", "Consultation.Microservice\Consultation.Microservice.csproj", "{772553AE-14B6-47D0-AE37-E4C70174353E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication.Microservice", "Authentication.Microservice\Authentication.Microservice.csproj", "{D5CD4FB9-9B3A-46DE-9BBF-5777D91153FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{0769C01A-734C-4133-80E5-FCCBD4ED387A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,14 @@ Global
 		{772553AE-14B6-47D0-AE37-E4C70174353E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{772553AE-14B6-47D0-AE37-E4C70174353E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{772553AE-14B6-47D0-AE37-E4C70174353E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5CD4FB9-9B3A-46DE-9BBF-5777D91153FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5CD4FB9-9B3A-46DE-9BBF-5777D91153FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5CD4FB9-9B3A-46DE-9BBF-5777D91153FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5CD4FB9-9B3A-46DE-9BBF-5777D91153FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0769C01A-734C-4133-80E5-FCCBD4ED387A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0769C01A-734C-4133-80E5-FCCBD4ED387A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0769C01A-734C-4133-80E5-FCCBD4ED387A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0769C01A-734C-4133-80E5-FCCBD4ED387A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +65,8 @@ Global
 		{746A69E4-EBE1-4BCD-9771-CE3C4979489C} = {AFE0AA64-ACD4-4F8B-8EC1-205AFA6A626D}
 		{742AC672-2AF0-4415-9C23-82C1099B9379} = {AFE0AA64-ACD4-4F8B-8EC1-205AFA6A626D}
 		{772553AE-14B6-47D0-AE37-E4C70174353E} = {5130264F-4AA9-4786-A98E-3CBAAA59C5F2}
+		{D5CD4FB9-9B3A-46DE-9BBF-5777D91153FC} = {5130264F-4AA9-4786-A98E-3CBAAA59C5F2}
+		{0769C01A-734C-4133-80E5-FCCBD4ED387A} = {AFE0AA64-ACD4-4F8B-8EC1-205AFA6A626D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2CF2794-10AD-4DBD-8FE3-EA93C03B7927}

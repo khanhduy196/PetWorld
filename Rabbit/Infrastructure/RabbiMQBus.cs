@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Rabbit.Bus;
 using Rabbit.Commands;
@@ -20,11 +21,14 @@ namespace Rabbit.Infrastructure
     {
         private readonly Dictionary<string, List<Type>> _handlers;
         private readonly IServiceScopeFactory _serviceScopeFactory;
-
-        public RabbitMQBus(IServiceScopeFactory serviceScopeFactory)
+        private readonly List<Type> _eventTypes;
+        private readonly RabbitMQConfiguration _rabbitMQConfiguration;
+        public RabbitMQBus(IServiceScopeFactory serviceScopeFactory, IOptions<RabbitMQConfiguration> options)
         {
             _serviceScopeFactory = serviceScopeFactory;
             _handlers = new Dictionary<string, List<Type>>();
+            _eventTypes = new List<Type>();
+            _rabbitMQConfiguration = options.Value;
         }
 
 
@@ -33,7 +37,7 @@ namespace Rabbit.Infrastructure
             // stop if routing is empty
             if (string.IsNullOrEmpty(@event.RoutingKey)) return;
 
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            var factory = new ConnectionFactory() { HostName = _rabbitMQConfiguration.HostName };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
@@ -80,6 +84,11 @@ namespace Rabbit.Infrastructure
             var eventName = typeof(T).Name.Substring(0, typeof(T).Name.Length - 7);
             var handlerType = typeof(TH);
 
+            if (!_eventTypes.Contains(typeof(T)))
+            {
+                _eventTypes.Add(typeof(T));
+            }
+
             if (!_handlers.ContainsKey(eventName))
             {
                 _handlers.Add(eventName, new List<Type>());
@@ -107,7 +116,7 @@ namespace Rabbit.Infrastructure
 
             var factory = new ConnectionFactory()
             {
-                HostName = "localhost",
+                HostName = _rabbitMQConfiguration.HostName,
                 DispatchConsumersAsync = true
             };
 
@@ -142,7 +151,7 @@ namespace Rabbit.Infrastructure
             }
             catch (Exception ex)
             {
-                var demo = 1;
+
             }
         }
 
@@ -158,10 +167,10 @@ namespace Rabbit.Infrastructure
                         var handler = scope.ServiceProvider.GetService(subscription);
                         if (handler == null) continue;
                         // create type for message of event
-                        var eventType = Type.GetType(eventName + "Message");
+                        var eventType = _eventTypes.SingleOrDefault(t => t.Name == (eventName + "Message"));
                         // create object for message of event
                         var @event = JsonConvert.DeserializeObject(message, eventType);
-                        //
+                        // create type of event handler
                         var concreteType = typeof(IEventHandler<>).MakeGenericType(eventType);
 
                         await(Task)concreteType.GetMethod("Handle").Invoke(handler, new object[] { @event });

@@ -1,17 +1,21 @@
-using Core.Domain.Repositories;
-using Cqrs;
-using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Amazon;
+using Amazon.CognitoIdentityProvider;
+using Amazon.Extensions.CognitoAuthentication;
+using Authentication.Microservice.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Rabbit.Bus;
-using Rabbit.Infrastructure;
-using User.Microservice.Infrastructure.Extensions;
+using Microsoft.Extensions.Logging;
 
-namespace User
+namespace Authentication.Microservice
 {
     public class Startup
     {
@@ -26,15 +30,8 @@ namespace User
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddMediatR(typeof(Startup));
-            //services.AddDbContext<UserDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("UserConnectionString")));
-            //services.AddScoped<DbContext, UserDbContext>();
-            services.AddScoped<IBaseCqrs, BaseCqrs>();
-            //Domain Bus
-            services.AddSingleton<IEventBus, RabbitMQBus>();
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            // Swagger
-            services.SwaggerConfigureServices();
+
+            services.CognitoConfigureServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,9 +43,6 @@ namespace User
             }
 
             app.UseHttpsRedirection();
-
-            //swagger
-            app.SwaggerConfigure();
 
             app.UseRouting();
 

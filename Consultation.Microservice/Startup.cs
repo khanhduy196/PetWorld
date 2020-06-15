@@ -34,8 +34,10 @@ namespace Consultation.Microservice
             //Domain Bus
             services.AddSingleton<IEventBus, RabbitMQBus>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            //
             services.AddTransient<CreatedConsultationMessageHandler>();
-            services.AddTransient<IEventHandler<CreatedConsultationMessage>, CreatedConsultationMessageHandler>();
+            // rabbit mq
+            services.Configure<RabbitMQConfiguration>(Configuration.GetSection("RabbitMQConfiguration"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
