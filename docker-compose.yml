@@ -3,13 +3,19 @@ services:
   consultation:
     build:
       context: .
-      dockerfile: ./Consultation.Microservice/Dockerfile
+      dockerfile: ./Consultation/Dockerfile
     ports:
       - "8080:80"
   user:
     build:
       context: .
       dockerfile: ./User/Dockerfile
+    ports:
+      - "8080:80"
+  authentication:
+    build:
+      context: .
+      dockerfile: ./Authentication.Microservice/Dockerfile
     ports:
       - "8080:80"
   db:
