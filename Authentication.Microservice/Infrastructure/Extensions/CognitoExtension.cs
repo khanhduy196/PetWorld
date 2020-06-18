@@ -12,7 +12,7 @@ namespace Authentication.Microservice.Infrastructure.Extensions
     {
         public static void CognitoConfigureServices(this IServiceCollection services)
         {
-            var cognitoIdentityProvider = new AmazonCognitoIdentityProviderClient(new Amazon.Runtime.AnonymousAWSCredentials(), RegionEndpoint.USEast1);
+            var cognitoIdentityProvider = new AmazonCognitoIdentityProviderClient(new Amazon.Runtime.AnonymousAWSCredentials(), RegionEndpoint.USEast2);
             services.AddSingleton<IAmazonCognitoIdentityProvider>(cognitoIdentityProvider);
         }
     }

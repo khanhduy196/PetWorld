@@ -9,6 +9,8 @@ using Amazon.Extensions.CognitoAuthentication;
 using Amazon.Runtime;
 using Authentication.Microservice.Domain.RequestDtos;
 using Common.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +29,7 @@ namespace Authentication.Microservice.Controllers
             _config = config;
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserToCreateRequest userToCreateRequest)
         {
